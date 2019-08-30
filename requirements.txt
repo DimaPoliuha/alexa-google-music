@@ -1,1 +1,2 @@
-ask-sdk-core
+ask-sdk-core==1.11.0
+gmusicapi==12.1.1

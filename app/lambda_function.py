@@ -8,8 +8,6 @@ from ask_sdk_core.dispatch_components import (
     AbstractRequestInterceptor, AbstractResponseInterceptor)
 from ask_sdk_core.utils import is_request_type, is_intent_name
 from ask_sdk_core.handler_input import HandlerInput
-
-from ask_sdk_model.ui import SimpleCard
 from ask_sdk_model import Response
 
 
@@ -41,7 +39,6 @@ def play_music_intent(handler_input):
     if song:
         logger.info(song)
         handler_input.response_builder.speak(song)
-        # os.getenv("TG_TOKEN")
         return handler_input.response_builder.response
     else:
         speech = "Please, specify song"
@@ -69,3 +66,21 @@ class CatchAllExceptionHandler(AbstractExceptionHandler):
 
 sb.add_exception_handler(CatchAllExceptionHandler())
 lambda_handler = sb.lambda_handler()
+
+
+import os
+from gmusicapi import Musicmanager, Mobileclient
+# from pathlib import Path
+
+# mm = Musicmanager()
+# mm.perform_oauth(storage_filepath=Path("./oauth.cred"))
+# imei = os.getenv("IMEI")
+# resp = mm.login(oauth_credentials=u"oauth.cred", uploader_id=imei)
+
+email = os.getenv("EMAIL")
+password = os.getenv("PASSWORD")
+imei = os.getenv("IMEI")
+
+mm = Mobileclient()
+mm.login(email=email, password=password, android_id=imei)
+logger.info(mm.is_authenticated())
