@@ -9,27 +9,22 @@
                 },
                 {
                     "name": "AMAZON.HelpIntent",
-                    "samples": []
+                    "samples": [
+                        "help"
+                    ]
                 },
                 {
                     "name": "AMAZON.StopIntent",
-                    "samples": []
+                    "samples": [
+                        "exit",
+                        "cancel",
+                        "stop",
+                        "bye"
+                    ]
                 },
                 {
                     "name": "AMAZON.NavigateHomeIntent",
                     "samples": []
-                },
-                {
-                    "name": "GoogleMusic",
-                    "slots": [
-                        {
-                            "name": "song",
-                            "type": "AMAZON.MusicCreativeWorkType"
-                        }
-                    ],
-                    "samples": [
-                        "play {song}"
-                    ]
                 },
                 {
                     "name": "AMAZON.PauseIntent",
@@ -38,6 +33,18 @@
                 {
                     "name": "AMAZON.ResumeIntent",
                     "samples": []
+                },
+                {
+                    "name": "PlayMusicIntent",
+                    "slots": [
+                        {
+                            "name": "song",
+                            "type": "AMAZON.SearchQuery"
+                        }
+                    ],
+                    "samples": [
+                        "play {song}"
+                    ]
                 }
             ],
             "types": []
